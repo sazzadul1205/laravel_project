@@ -50,10 +50,10 @@
 <body class="login-page">
     <div class="login-box">
 
-
         {{-- Login --}}
         <div>
 
+            {{-- Form --}}
             <form action="{{ route('login') }}" method="post" class="p-4">
                 @csrf
 

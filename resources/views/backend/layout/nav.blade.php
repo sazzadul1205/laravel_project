@@ -113,7 +113,10 @@
                           <li role="separator" class="divider"></li>
                           <li><a href="#"><i class="icon-gears"></i> Account Setting</a></li>
                           <li role="separator" class="divider"></li>
-                          <li><a href="#"><i class="fa fa-power-off"></i> Logout</a></li>
+                          <form action="{{ route('logout') }}" method="POST">
+                              @csrf
+                              <button type="submit"><i class="fa fa-power-off"></i> Logout</button>
+                          </form>
                       </ul>
                   </li>
                   <!-- Control Sidebar Toggle Button -->
