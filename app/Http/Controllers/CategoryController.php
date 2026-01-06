@@ -30,7 +30,15 @@ class CategoryController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        // Category Array
+        $category = [
+            'name' => $request->cat_name,
+        ];
+
+        Category::create($category);
+
+        return redirect('/category');
+        // return redirect()->route('category.index');
     }
 
     /**

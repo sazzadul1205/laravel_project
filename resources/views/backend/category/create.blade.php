@@ -41,12 +41,12 @@
 @section('content')
     <div class="content-wrapper">
         <!-- Content Header (Page header) -->
-        <div class="content-header sty-two">
-            <h1 class="text-white">Form Layouts</h1>
+        <div class="content-header sty-one">
+            <h1 class="text-black">Category Entry Form</h1>
             <ol class="breadcrumb">
                 <li><a href="#">Home</a></li>
                 <li><i class="fa fa-angle-right"></i> <a href="#">Form</a></li>
-                <li><i class="fa fa-angle-right"></i> Form Layouts</li>
+                <li><i class="fa fa-angle-right"></i> Category Entry Form</li>
             </ol>
         </div>
 
@@ -61,14 +61,15 @@
 
                         <div class="card-body">
                             <form action="{{ route('category.store') }}" method="POST">
+                                @csrf
                                 <div class="form-group">
-                                    <label for="name">Name</label>
-                                    <input type="text" class="form-control" id="name" name="name"
-                                        placeholder="Enter name" required>
+                                    <label for="cat_name">Name</label>
+                                    <input type="text" class="form-control" id="cat_name" name="cat_name"
+                                        placeholder="Enter Category name" required>
                                 </div>
 
                                 <button type="submit" class="btn btn-success">
-                                    Save
+                                    Submit
                                 </button>
                             </form>
                         </div>
@@ -110,7 +111,7 @@
         var frmMobileValidator = frmMobile.validate();
 
         $('#demo1').steps({
-            onChange: function(currentIndex, newIndex, stepDirection) {
+            onChange: function (currentIndex, newIndex, stepDirection) {
                 console.log('onChange', currentIndex, newIndex, stepDirection);
                 // tab1
                 if (currentIndex === 0) {
@@ -159,14 +160,14 @@
                 return true;
 
             },
-            onFinish: function() {
+            onFinish: function () {
                 alert('Wizard Completed');
             }
         });
     </script>
     <script>
         $('#demo').steps({
-            onFinish: function() {
+            onFinish: function () {
                 alert('Wizard Completed');
             }
         });
@@ -175,7 +176,7 @@
     <script type="text/javascript">
         var Tawk_API = Tawk_API || {},
             Tawk_LoadStart = new Date();
-        (function() {
+        (function () {
             var s1 = document.createElement("script"),
                 s0 = document.getElementsByTagName("script")[0];
             s1.async = true;
