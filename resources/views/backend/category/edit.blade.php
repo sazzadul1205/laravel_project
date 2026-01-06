@@ -15,21 +15,21 @@
             content="admin, admin dashboard, admin template, cms, crm, Biz Admin, Biz Adminadmin, premium admin templates, responsive admin, sass, panel, software, ui, visualization, web app, application" />
         <meta name="author" content="uxliner" />
         <!-- v4.1.3 -->
-        <link rel="stylesheet" href="dist/bootstrap/css/bootstrap.min.css">
+        <link rel="stylesheet" href="{{ asset('dist/bootstrap/css/bootstrap.min.css')}}">
 
         <!-- Favicon -->
-        <link rel="icon" type="image/png" sizes="16x16" href="dist/img/favicon-16x16.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="{{ asset('dist/img/favicon-16x16.png')}}">
 
         <!-- Google Font -->
-        <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700" rel="stylesheet">
+        <link rel="stylesheet" href="{{ asset('https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700')}}">
 
         <!-- Theme style -->
-        <link rel="stylesheet" href="dist/css/style.css">
-        <link rel="stylesheet" href="dist/css/font-awesome/css/font-awesome.min.css">
-        <link rel="stylesheet" href="dist/css/et-line-font/et-line-font.css">
-        <link rel="stylesheet" href="dist/css/themify-icons/themify-icons.css">
-        <link rel="stylesheet" href="dist/css/simple-lineicon/simple-line-icons.css">
-        <link rel="stylesheet" href="dist/css/skins/_all-skins.min.css">
+        <link rel="stylesheet" href="{{ asset('dist/css/style.css')}}">
+        <link rel="stylesheet" href="{{ asset('dist/css/font-awesome/css/font-awesome.min.css')}}">
+        <link rel="stylesheet" href="{{ asset('dist/css/et-line-font/et-line-font.css')}}">
+        <link rel="stylesheet" href="{{ asset('dist/css/themify-icons/themify-icons.css')}}">
+        <link rel="stylesheet" href="{{ asset('dist/css/simple-lineicon/simple-line-icons.css')}}">
+        <link rel="stylesheet" href="{{ asset('dist/css/skins/_all-skins.min.css')}}">
 
 
     </head>
@@ -106,18 +106,18 @@
 
 @section('scripts')
     <!-- jQuery 3 -->
-    <script src="dist/js/jquery.min.js"></script>
-    <script src="dist/bootstrap/js/bootstrap.min.js"></script>
+    <script src="{{ asset('dist/js/jquery.min.js') }}"></script>
+    <script src="{{ asset('dist/bootstrap/js/bootstrap.min.js') }}"></script>
 
     <!-- template -->
-    <script src="dist/js/bizadmin.js"></script>
+    <script src="{{ asset('dist/js/bizadmin.js') }}"></script>
 
     <!-- JQuery Spark lines -->
-    <script src="dist/plugins/jquery-sparklines/sparkline-int.js"></script>
-    <script src="dist/plugins/jquery-sparklines/jquery.sparkline.min.js"></script>
+    <script src="{{ asset('dist/plugins/jquery-sparklines/sparkline-int.js') }}"></script>
+    <script src="{{ asset('dist/plugins/jquery-sparklines/jquery.sparkline.min.js') }}"></script>
 
     <!-- Morris JavaScript -->
-    <script src="dist/plugins/morris/morris.js"></script>
-    <script src="dist/plugins/raphael/raphael-min.js"></script>
-    <script src="dist/plugins/functions/dashboard1.js"></script>
+    <script src="{{ asset('dist/plugins/morris/morris.js') }}"></script>
+    <script src="{{ asset('dist/plugins/raphael/raphael-min.js') }}"></script>
+    <script src="{{ asset('dist/plugins/functions/dashboard1.js') }}"></script>
 @endsection

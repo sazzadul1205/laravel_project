@@ -15,33 +15,25 @@
             content="admin, admin dashboard, admin template, cms, crm, Biz Admin, Biz Adminadmin, premium admin templates, responsive admin, sass, panel, software, ui, visualization, web app, application" />
         <meta name="author" content="uxliner" />
         <!-- v4.0.0 -->
-        <link rel="stylesheet" href="dist/bootstrap/css/bootstrap.min.css">
+        <link rel="stylesheet" href="{{asset('dist/bootstrap/css/bootstrap.min.css')}}">
 
         <!-- Favicon -->
-        <link rel="icon" type="image/png" sizes="16x16" href="dist/img/favicon-16x16.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="{{asset('dist/img/favicon-16x16.png')}}">
 
         <!-- Google Font -->
-        <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700" rel="stylesheet">
+        <link rel="stylesheet" href="{{asset('https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700')}}">
 
         <!-- Theme style -->
-        <link rel="stylesheet" href="dist/css/style.css">
-        <link rel="stylesheet" href="dist/css/font-awesome/css/font-awesome.min.css">
-        <link rel="stylesheet" href="dist/css/et-line-font/et-line-font.css">
-        <link rel="stylesheet" href="dist/css/themify-icons/themify-icons.css">
-        <link rel="stylesheet" href="dist/css/simple-lineicon/simple-line-icons.css">
-        <link rel="stylesheet" href="dist/css/skins/_all-skins.min.css">
+        <link rel="stylesheet" href="{{asset('dist/css/style.css')}}">
+        <link rel="stylesheet" href="{{asset('dist/css/font-awesome/css/font-awesome.min.css')}}">
+        <link rel="stylesheet" href="{{asset('dist/css/et-line-font/et-line-font.css')}}">
+        <link rel="stylesheet" href="{{asset('dist/css/themify-icons/themify-icons.css')}}">
+        <link rel="stylesheet" href="{{asset('dist/css/simple-lineicon/simple-line-icons.css')}}">
+        <link rel="stylesheet" href="{{asset('dist/css/skins/_all-skins.min.css')}}">
 
         <!-- jsgrid Tables -->
-        <link type="text/css" rel="stylesheet" href="dist/plugins/jsgrid/jsgrid.css" />
-        <link type="text/css" rel="stylesheet" href="dist/plugins/jsgrid/theme.css" />
-
-        <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
-        <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-        <!--[if lt IE 9]>
-                                              <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
-                                              <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
-                                            <![endif]-->
-
+        <link type="text/css" rel="stylesheet" href="{{asset('dist/plugins/jsgrid/jsgrid.css')}}" />
+        <link type="text/css" rel="stylesheet" href="{{asset('dist/plugins/jsgrid/theme.css')}}" />
     </head>
 @endsection
 
@@ -107,25 +99,25 @@
 
 @section('scripts')
     <!-- jQuery 3 -->
-    <script src="dist/js/jquery.min.js"></script>
-    <script src="dist/plugins/popper/popper.min.js"></script>
-    <script src="dist/bootstrap/js/bootstrap.min.js"></script>
+    <script src="{{asset('dist/js/jquery.min.js')}}"></script>
+    <script src="{{asset('dist/plugins/popper/popper.min.js')}}"></script>
+    <script src="{{asset('dist/bootstrap/js/bootstrap.min.js')}}"></script>
 
     <!-- template -->
-    <script src="dist/js/bizadmin.js"></script>
+    <script src="{{asset('dist/js/bizadmin.js')}}"></script>
 
     <!-- for demo purposes -->
-    <script src="dist/js/demo.js"></script>
+    <script src="{{asset('dist/js/demo.js')}}"></script>
 
     <!-- jsgrid Tables -->
-    <script src="dist/plugins/jsgrid/db.js"></script>
-    <script src="dist/plugins/jsgrid/jsgrid.min.js"></script>
-    <script src="dist/plugins/jsgrid/jsgrid.int.js"></script>
+    <script src="{{asset('dist/plugins/jsgrid/db.js')}}"></script>
+    <script src="{{asset('dist/plugins/jsgrid/jsgrid.min.js')}}"></script>
+    <script src="{{asset('dist/plugins/jsgrid/jsgrid.int.js')}}"></script>
     <!--Start of Tawk.to Script-->
     <script type="text/javascript">
         var Tawk_API = Tawk_API || {},
             Tawk_LoadStart = new Date();
-        (function() {
+        (function () {
             var s1 = document.createElement("script"),
                 s0 = document.getElementsByTagName("script")[0];
             s1.async = true;
