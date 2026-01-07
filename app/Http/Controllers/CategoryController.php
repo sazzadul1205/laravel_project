@@ -30,6 +30,17 @@ class CategoryController extends Controller
      */
     public function store(Request $request)
     {
+        // Validation
+        $request->validate([
+            'cat_name' => 'required|max:100|min:3|unique:categories,name',
+        ], [
+            'cat_name.required' => 'Category Name is required',
+            'cat_name.max' => 'Category Name must be less than 100 characters',
+            'cat_name.min' => 'Category Name must be at least 3 characters',
+            'cat_name.unique' => 'Category Name already exists',
+        ]);
+
+
         // Category Array
         $category = [
             'name' => $request->cat_name,
@@ -37,7 +48,7 @@ class CategoryController extends Controller
 
         Category::create($category);
 
-        return redirect('/category');
+        return redirect('/category')->with('success', 'Category Created Successfully');
         // return redirect()->route('category.index');
     }
 
@@ -51,7 +62,7 @@ class CategoryController extends Controller
      */
     public function edit(Category $category)
     {
-        return view('backend.category.edit');
+        return view('backend.category.edit', compact('category'));
     }
 
     /**
@@ -59,7 +70,21 @@ class CategoryController extends Controller
      */
     public function update(Request $request, Category $category)
     {
-        //
+        $request->validate([
+            'cat_name' => 'required|max:100|min:3|unique:categories,name,' . $category->id,
+        ], [
+            'cat_name.required' => 'Category Name is required',
+            'cat_name.max' => 'Category Name must be less than 100 characters',
+            'cat_name.min' => 'Category Name must be at least 3 characters',
+            'cat_name.unique' => 'Category Name already exists',
+        ]);
+        $data = [
+            "name" => $request->cat_name,
+        ];
+        $category->update($data);
+        return redirect('/category')->with('success', 'Category Updated Successfully');
+        // dd($request);
+        // dd($category);
     }
 
     /**
@@ -67,6 +92,8 @@ class CategoryController extends Controller
      */
     public function destroy(Category $category)
     {
-        //
+        //    return "DELETED";
+        $category->delete();
+        return redirect("/category")->with("success", "Successfully Deleted $category->name");
     }
 }

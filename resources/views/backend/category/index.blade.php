@@ -21,7 +21,7 @@
         <link rel="icon" type="image/png" sizes="16x16" href="{{asset('dist/img/favicon-16x16.png')}}">
 
         <!-- Google Font -->
-        <link rel="stylesheet" href="{{asset('https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700')}}">
+        <link rel="stylesheet" href="'https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700'">
 
         <!-- Theme style -->
         <link rel="stylesheet" href="{{asset('dist/css/style.css')}}">
@@ -59,9 +59,12 @@
                         <a href="{{ url('category/create') }}" class="btn btn-primary fw-semibold">
                             <i class="bi bi-plus-circle me-1"></i> Add Category
                         </a>
-
                     </div>
-
+                
+                    @session('success')
+                        <div class="alert alert-success">{{ session('success') }}</div>
+                        
+                    @endsession
 
                     <table class="table table-bordered table-striped table-hover text-center">
                         <thead class="table-dark">
@@ -74,18 +77,19 @@
                         <tbody>
                             @foreach ($cats as $category)
                                 <tr>
+                                   <form method="post" action="{{ route('category.destroy', $category->id) }}" >
+                                    @csrf
+                                    @method('delete')
                                     <td>{{ $category->id }}</td>
                                     <td>{{ $category->name }}</td>
                                     <td>
-                                        <a href="{{ url('category/' . $category->id . '/edit') }}"
-                                            class="btn btn-primary btn-sm">
-                                            <i class="bi bi-pencil-square"></i> Edit
-                                        </a>
-                                        <a href="{{ url('category/' . $category->id . '/delete') }}"
+                                        <a class="btn btn-primary btn-sm" href="{{ route('category.edit', $category->id) }}"><i class="bi bi-pencil-square"></i> Edit</a>
+                                        <button 
                                             class="btn btn-danger btn-sm">
                                             <i class="bi bi-trash"></i> Delete
-                                        </a>
+                                        </button>
                                     </td>
+                                   </form>
                                 </tr>
                             @endforeach
                         </tbody>

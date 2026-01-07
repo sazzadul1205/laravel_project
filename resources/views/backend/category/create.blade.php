@@ -21,7 +21,7 @@
         <link rel="icon" type="image/png" sizes="16x16" href="{{ asset('dist/img/favicon-16x16.png') }}">
 
         <!-- Google Font -->
-        <link href="{{ asset('https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700') }}" rel="stylesheet">
+        <link href="'https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700'" rel="stylesheet">
 
         <!-- Theme style -->
         <link rel="stylesheet" href="{{ asset('dist/css/style.css') }}">
@@ -60,11 +60,22 @@
                         </div>
 
                         <div class="card-body">
+                            @if ($errors->any)
+                                <div>
+                                        @foreach ($errors->all() as $error)
+                                            <div class="alert alert-danger">{{ $error }}</div>
+                                        @endforeach
+                                    
+                                </div>
+                        
+        
+                            @endif
+
                             <form action="{{ route('category.store') }}" method="POST">
                                 @csrf
                                 <div class="form-group">
                                     <label for="cat_name">Name</label>
-                                    <input type="text" class="form-control" id="cat_name" name="cat_name"
+                                    <input type="text" class="form-control" id="cat_name" name="cat_name" value="{{ old('cat_name') }}"
                                         placeholder="Enter Category name" required>
                                 </div>
 
@@ -95,7 +106,7 @@
 
     <!-- form wizard -->
     <script src="{{ asset('dist/plugins/formwizard/jquery-steps.js') }}"></script>
-    <script src="{{ asset('https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.16.0/jquery.validate.min.js') }}">
+    <script src="'https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.16.0/jquery.validate.min.js'">
     </script>
     <script>
         var frmRes = $('#frmRes');
