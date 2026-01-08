@@ -39,58 +39,139 @@
 
 
 @section('content')
-    <div class="content-wrapper">
-        <!-- Content Header (Page header) -->
-        <div class="content-header sty-one">
-            <h1 class="text-black">Category Entry Form</h1>
-            <ol class="breadcrumb">
-                <li><a href="#">Home</a></li>
-                <li><i class="fa fa-angle-right"></i> <a href="#">Form</a></li>
-                <li><i class="fa fa-angle-right"></i> Category Entry Form</li>
-            </ol>
-        </div>
+<div class="content-wrapper">
+    <!-- Content Header (Page header) -->
+    <div class="content-header sty-one">
+        <h1 class="text-black">Product Entry Form</h1>
+        <ol class="breadcrumb">
+            <li><a href="#">Home</a></li>
+            <li><i class="fa fa-angle-right"></i> <a href="#">Form</a></li>
+            <li><i class="fa fa-angle-right"></i> Product Entry Form</li>
+        </ol>
+    </div>
 
-        <!-- Main content -->
-        <div class="content">
-            <div class="row">
-                <div class="col-lg-12">
-                    <div class="card card-outline">
-                        <div class="card-header bg-blue">
-                            <h5 class="text-white m-b-0">Add Category</h5>
-                        </div>
+    <!-- Main content -->
+    <div class="content">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="card card-outline">
+                    <div class="card-header bg-blue">
+                        <h5 class="text-white m-b-0">Add Product</h5>
+                    </div>
 
-                        <div class="card-body">
-                            @if ($errors->any)
-                                <div>
-                                        @foreach ($errors->all() as $error)
-                                            <div class="alert alert-danger">{{ $error }}</div>
-                                        @endforeach
-                                    
-                                </div>
-                        
-        
-                            @endif
+                    <div class="card-body">
+                        @if ($errors->any())
+                            <div>
+                                @foreach ($errors->all() as $error)
+                                    <div class="alert alert-danger">{{ $error }}</div>
+                                @endforeach
+                            </div>
+                        @endif
 
-                            <form action="{{ route('category.store') }}" method="POST">
-                                @csrf
-                                <div class="form-group">
-                                    <label for="cat_name">Name</label>
-                                    <input type="text" class="form-control" id="cat_name" name="cat_name" value="{{ old('cat_name') }}"
-                                        placeholder="Enter Category name" required>
-                                </div>
+                        <form action="{{ route('product.store') }}" method="post" enctype="multipart/form-data">
+                            @csrf
 
-                                <button type="submit" class="btn btn-success">
-                                    Submit
-                                </button>
-                            </form>
-                        </div>
+                            <!-- Product Name -->
+                            <div class="form-group">
+                                <label for="name">Product Name</label>
+                                <input 
+                                    type="text" 
+                                    class="form-control" 
+                                    name="prod_name" 
+                                    value="{{ old('prod_name') }}" 
+                                    placeholder="Enter product name" 
+                                    required 
+                                    />
+                            </div>
+
+                            <!-- SKU -->
+                            <div class="form-group">
+                                <label for="SKU">SKU</label>
+                                <input 
+                                    type="text" 
+                                    class="form-control" 
+                                    name="prod_sku" 
+                                    value="{{ old('prod_sku') }}" 
+                                    placeholder="Enter SKU" 
+                                    required 
+                                    />
+                            </div>
+
+                            <!-- Stock -->
+                            <div class="form-group">
+                                <label for="stock">Stock</label>
+                                <input 
+                                    type="number" 
+                                    class="form-control" 
+                                    name="prod_stock" 
+                                    value="{{ old('prod_stock') }}" 
+                                    placeholder="Enter stock quantity" 
+                                    min="0" 
+                                    />
+                            </div>
+
+                            <!-- Details -->
+                            <div class="form-group">
+                                <label for="details">Details</label>
+                                <textarea 
+                                    class="form-control" 
+                                    name="prod_details" 
+                                    placeholder="Enter product details"
+                                    required >
+                                    {{ old('prod_details') }}
+                                </textarea>
+                            </div>
+
+                            <!-- Price -->
+                            <div class="form-group">
+                                <label for="price">Price</label>
+                                <input 
+                                    type="number" 
+                                    step="0.01" 
+                                    class="form-control" 
+                                    name="prod_price" 
+                                    value="{{ old('prod_price') }}" 
+                                    placeholder="Enter product price" 
+                                    required 
+                                    />
+                            </div>
+
+                            <!-- Category -->
+                            <div class="form-group">
+                                <label for="category">Category</label>
+                                <select name="prod_category" id="prod_category" class="form-control" >
+                                    <option value="" selected >Select Category</option>
+                                    @foreach ($cat as $category)
+                                        <option value="{{ $category->id }}">{{ $category->name }}</option>
+                                    @endforeach
+
+                                
+                                </select>
+                            </div>
+
+                            <!-- Image -->
+                            <div class="form-group">
+                                <label for="image">Product Image</label>
+                                <input 
+                                    type="file" 
+                                    class="form-control" 
+                                    name="prod_image" 
+                                    accept="image/*"/>
+                            </div>
+
+                            <button type="submit" class="btn btn-success">
+                                Submit
+                            </button>
+                        </form>
+
                     </div>
                 </div>
             </div>
         </div>
-
-        <!-- /.content -->
     </div>
+    <!-- /.content -->
+</div>
+
 @endsection
 
 @section('scripts')
@@ -182,20 +263,6 @@
                 alert('Wizard Completed');
             }
         });
-    </script>
-    <!--Start of Tawk.to Script-->
-    <script type="text/javascript">
-        var Tawk_API = Tawk_API || {},
-            Tawk_LoadStart = new Date();
-        (function () {
-            var s1 = document.createElement("script"),
-                s0 = document.getElementsByTagName("script")[0];
-            s1.async = true;
-            s1.src = 'https://embed.tawk.to/5b7257d2afc2c34e96e78bfc/default';
-            s1.charset = 'UTF-8';
-            s1.setAttribute('crossorigin', '*');
-            s0.parentNode.insertBefore(s1, s0);
-        })();
     </script>
     <!--End of Tawk.to Script-->
 @endsection
