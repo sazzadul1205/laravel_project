@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\ProductController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 
@@ -27,11 +28,10 @@ Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
-    // Route::get('/categories', [CategoryController::class, 'index'])->name('categories.all');;
-    // Route::get('/category/new', [CategoryController::class, 'create'])->name('categories.new');
-    // Route::get('/category/edit/{id}', [CategoryController::class, 'edit'])->name('categories.edit');
-    // Route::post('/category/delete/{id}', [CategoryController::class, 'destroy'])->name('categories.delete');
+
     Route::resource('category', CategoryController::class);
+
+    Route::resource('product', ProductController::class);
 });
 
 require __DIR__ . '/auth.php';
