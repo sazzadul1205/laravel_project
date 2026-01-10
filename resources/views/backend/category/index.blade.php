@@ -60,10 +60,10 @@
                             <i class="bi bi-plus-circle me-1"></i> Add Category
                         </a>
                     </div>
-                
+
                     @session('success')
                         <div class="alert alert-success">{{ session('success') }}</div>
-                        
+
                     @endsession
 
                     <table class="table table-bordered table-striped table-hover text-center">
@@ -77,19 +77,20 @@
                         <tbody>
                             @foreach ($cats as $category)
                                 <tr>
-                                   <form method="post" action="{{ route('category.destroy', $category->id) }}" >
-                                    @csrf
-                                    @method('delete')
-                                    <td>{{ $category->id }}</td>
-                                    <td>{{ $category->name }}</td>
-                                    <td>
-                                        <a class="btn btn-primary btn-sm" href="{{ route('category.edit', $category->id) }}"><i class="bi bi-pencil-square"></i> Edit</a>
-                                        <button 
-                                            class="btn btn-danger btn-sm">
-                                            <i class="bi bi-trash"></i> Delete
-                                        </button>
-                                    </td>
-                                   </form>
+                                    <form method="post" action="{{ route('category.destroy', $category->id) }}">
+                                        @csrf
+                                        @method('delete')
+                                        <td>{{ $category->id }}</td>
+                                        <td>{{ $category->name }}</td>
+                                        <td>
+                                            <a class="btn btn-primary btn-sm"
+                                                href="{{ route('category.edit', $category->id) }}"><i
+                                                    class="bi bi-pencil-square"></i> Edit</a>
+                                            <button class="btn btn-danger btn-sm">
+                                                <i class="bi bi-trash"></i> Delete
+                                            </button>
+                                        </td>
+                                    </form>
                                 </tr>
                             @endforeach
                         </tbody>

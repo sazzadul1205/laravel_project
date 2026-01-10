@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Category;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class CategoryController extends Controller
 {
@@ -12,7 +13,8 @@ class CategoryController extends Controller
      */
     public function index()
     {
-        $cats = Category::all();
+        $cats = DB::table("categories")->get();
+        // $cats = Category::all();
         // dd($cats);
         return view('backend.category.index', compact('cats'));
     }
@@ -83,8 +85,6 @@ class CategoryController extends Controller
         ];
         $category->update($data);
         return redirect('/category')->with('success', 'Category Updated Successfully');
-        // dd($request);
-        // dd($category);
     }
 
     /**

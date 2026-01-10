@@ -11,4 +11,11 @@ class Category extends Model
 
     // The attributes that are mass assignable.
     protected $fillable = ['name'];
+
+
+    // Relationship
+    public function product()
+    {
+        return $this->hasMany(Product::class);
+    }
 }
