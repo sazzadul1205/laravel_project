@@ -22,12 +22,12 @@
     <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700" rel="stylesheet">
 
     <!-- Theme style -->
-    <link rel="stylesheet" href="{{ asset('dist/css/style.css') }}">
-    <link rel="stylesheet" href="{{ asset('dist/css/font-awesome/css/font-awesome.min.css') }}">
-    <link rel="stylesheet" href="{{ asset('dist/css/et-line-font/et-line-font.css') }}">
-    <link rel="stylesheet" href="{{ asset('dist/css/themify-icons/themify-icons.css') }}">
-    <link rel="stylesheet" href="{{ asset('dist/css/simple-lineicon/simple-line-icons.css') }}">
-    <link rel="stylesheet" href="{{ asset('dist/css/skins/_all-skins.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('') }}dist/css/style.css">
+    <link rel="stylesheet" href="{{ asset('') }}dist/css/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="{{ asset('') }}dist/css/et-line-font/et-line-font.css">
+    <link rel="stylesheet" href="{{ asset('') }}dist/css/themify-icons/themify-icons.css">
+    <link rel="stylesheet" href="{{ asset('') }}dist/css/simple-lineicon/simple-line-icons.css">
+    <link rel="stylesheet" href="{{ asset('') }}dist/css/skins/_all-skins.min.css">
 
     <style>
         body.login-page {
@@ -57,7 +57,7 @@
             <form action="{{ route('admin.login') }}" method="post" class="p-4">
                 @csrf
 
-                <h3 class="text-center mb-4 font-weight-bold">Sign In</h3>
+                <h3 class="text-center mb-4 font-weight-bold">Admin Sign In</h3>
 
                 <!-- Email -->
                 <div class="form-group">
