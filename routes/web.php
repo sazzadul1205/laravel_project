@@ -50,5 +50,21 @@ Route::middleware('auth:admin')->prefix('admin')->group(function () {
     Route::view('/dashboard', 'admin.dashboard');
 });
 
+Route::middleware('guest:manager')->prefix('manager')->group(function () {
+
+    Route::get('login', [App\Http\Controllers\Auth\Manager\LoginController::class, 'create'])->name('manager.login');
+    Route::post('login', [App\Http\Controllers\Auth\Manager\LoginController::class, 'store']);
+
+    // Route::get('register', [App\Http\Controllers\Auth\Admin\RegisterController::class, 'create'])->name('admin.register');
+    // Route::post('register', [App\Http\Controllers\Auth\Admin\RegisterController::class, 'store']);
+});
+
+Route::middleware('auth:manager')->prefix('manager')->group(function () {
+
+    Route::post('logout', [App\Http\Controllers\Auth\Manager\LoginController::class, 'destroy'])->name('manager.logout');
+
+    Route::view('/dashboard', 'manager.dashboard');
+});
+
 
 require __DIR__ . '/auth.php';

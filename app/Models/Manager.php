@@ -6,11 +6,11 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Laravel\Sanctum\HasApiTokens;
 
-class Admin extends Authenticatable
+class Manager extends Authenticatable
 {
     use HasApiTokens, HasFactory;
 
-    protected $guard = 'admin';
+    protected $guard = 'manager';
 
     protected $fillable = [
         'name',
